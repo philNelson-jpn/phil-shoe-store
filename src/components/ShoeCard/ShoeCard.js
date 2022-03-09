@@ -56,18 +56,20 @@ const Link = styled.a`
 `;
 
 const Wrapper = styled.article`
-  width: 20vw;
+  /* width: 20vw; */
 `;
 
 const ImageWrapper = styled.div`
-  display: flex;
+  /* display: flex;
   flex-wrap: wrap;
-  flex: 1 1 250px;
+  flex: 1 1 250px; */
 `;
 
 const Image = styled.img`
+  /* cards managed in ShoeGrid.js/ShoeWrapper component */
+  /* Have the image fill the container with the container being agnostic */
   width: 100%;
-  border-radius: 16px;
+  /* border-radius: 16px; */
 `;
 
 const Row = styled.div`
