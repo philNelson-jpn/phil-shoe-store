@@ -26,10 +26,11 @@ const Wrapper = styled.div`
   font-size: 0.875rem;
   color: ${COLORS.gray[300]};
   background-color: ${COLORS.gray[900]};
+  height: 40px;
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 12px 32px;
+  gap: 24px;
+  padding: 0 32px;
 `;
 
 const MarketingMessage = styled.span`
@@ -41,6 +42,20 @@ const HelpLink = styled.a`
   color: inherit;
   text-decoration: none;
   outline-offset: 2px;
+
+  /* Internet Explorer Support (no Gap property) */
+  /* 
+  
+     margin-left: 24px;
+     margin-right: 24px;  
+     
+     OR
+
+     import Spacer from '../Spacer';
+     <Spacer size={24} />
+      <HelpLink href="/help">Help</HelpLink>
+     <Spacer size={24} /> 
+     */
 
   &:not(:focus-visible) {
     outline: none;
