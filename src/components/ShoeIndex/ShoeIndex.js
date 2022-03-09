@@ -53,18 +53,21 @@ const LeftColumn = styled.div`
   top: 0;
   left: 0;
   align-self: flex-start;
-  
+  padding: 0 32px;
+  margin: 0 -32px;
   `;
 
 const MainColumn = styled.div`
   display: flex;
   flex-direction: column;
-  flex: 3;
+  flex-wrap: wrap;
+  flex: 1;
   `;
 
 const Header = styled.header`
   display: flex;
   align-items: center;
+  margin-top: -16px;;
 `;
 
 const Title = styled.h2`
