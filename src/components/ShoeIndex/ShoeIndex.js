@@ -45,35 +45,42 @@ const ShoeIndex = ({ sortId, setSortId }) => {
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row-reverse;
+  align-items: baseline;
+  gap: 32px;
 `;
 
 const LeftColumn = styled.div`
-  flex: 0 0 248px;
+  flex-basis: 248px;
+
+  /* flex: 0 0 248px;
   position: sticky;
   top: 0;
   left: 0;
   align-self: flex-start;
   padding: 0 32px;
-  margin: 0 -32px;
+  margin: 0 -32px; */
   `;
 
 const MainColumn = styled.div`
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  flex-wrap: wrap; */
   flex: 1;
   `;
 
 const Header = styled.header`
   display: flex;
-  align-items: center;
-  margin-top: -16px;;
+  align-items: baseline;
+  /* since we have just a title and an input (with a label, we can use space-between) */
+  justify-content: space-between;
+  /* I aligned items center before */
+  /* margin-top: -16px; */
 `;
 
 const Title = styled.h2`
   font-size: 1.5rem;
   font-weight: ${WEIGHTS.medium};
-  margin-right: auto;
+  /* margin-right: auto; */
 `;
 
 export default ShoeIndex;

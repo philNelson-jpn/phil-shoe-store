@@ -35,22 +35,22 @@ const MainHeader = styled.div`
   display: flex;
   height: 72px;
   align-items: baseline;
-
-
+  
+  
   /* align-items: center;
   justify-content: flex-start; */
-`;
+  `;
 
 const Nav = styled.nav`
   display: flex;
   gap: 48px;
   margin: 0 48px;
-
-
+  
+  
   /* margin-left: auto;
   margin-right: auto;
   padding: 25px 0; */
-`;
+  `;
 
 const Side = styled.div`
   flex: 1;
@@ -63,11 +63,11 @@ const NavLink = styled.a`
   color: ${COLORS.gray[900]};
   font-weight: ${WEIGHTS.medium};
   /* margin: 0 26px; */
-
-
+  
+  
   &:first-of-type {
     color: ${COLORS.secondary};
   }
-`;
+  `;
 
 export default Header;
