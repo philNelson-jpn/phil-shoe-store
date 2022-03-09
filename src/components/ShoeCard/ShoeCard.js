@@ -36,14 +36,20 @@ const ShoeCard = ({
       <Wrapper>
         <ImageWrapper>
           <Image alt="" src={imageSrc} />
+          {variant === 'on-sale' && <SaleFlag>Sale</SaleFlag>}
+          {variant === 'new-release' && <NewFlag>Just released!</NewFlag>}
         </ImageWrapper>
         <Spacer size={12} />
         <Row>
           <Name>{name}</Name>
-          <Price>{formatPrice(price)}</Price>
+          {/* Add variables to check for sale price, chenge color and add line-through */}
+          <Price style={{'--color': variant === 'on-sale' ? COLORS.gray[700] : undefined, '--text-decoration': variant === 'on-sale' ? 'line-through' : undefined}}>{formatPrice(price)}</Price>
         </Row>
         <Row>
           <ColorInfo>{pluralize('Color', numOfColors)}</ColorInfo>
+          {variant === 'on-sale' ?
+          <SalePrice>{formatPrice(salePrice)}</SalePrice>
+          : undefined}
         </Row>
       </Wrapper>
     </Link>
@@ -60,20 +66,20 @@ const Wrapper = styled.article`
 `;
 
 const ImageWrapper = styled.div`
-  /* display: flex;
-  flex-wrap: wrap;
-  flex: 1 1 250px; */
+  position: relative;
 `;
 
 const Image = styled.img`
   /* cards managed in ShoeGrid.js/ShoeWrapper component */
   /* Have the image fill the container with the container being agnostic */
   width: 100%;
-  /* border-radius: 16px; */
+  border-radius: 16px 16px 4px 4px;
 `;
 
 const Row = styled.div`
   font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
 `;
 
 const Name = styled.h3`
@@ -81,7 +87,10 @@ const Name = styled.h3`
   color: ${COLORS.gray[900]};
 `;
 
-const Price = styled.span``;
+const Price = styled.span`
+  color: var(--color);
+  text-decoration: var(--text-decoration);
+`;
 
 const ColorInfo = styled.p`
   color: ${COLORS.gray[700]};
@@ -90,6 +99,29 @@ const ColorInfo = styled.p`
 const SalePrice = styled.span`
   font-weight: ${WEIGHTS.medium};
   color: ${COLORS.primary};
+`;
+
+const Flag = styled.div`
+  position: absolute;
+  top: 12px;
+  right: -4px;
+  background: red;
+  height: 32px;
+  /* center the text within the container */
+  line-height: 32px;
+  padding: 0 10px;
+  font-size: ${14 / 16}rem;
+  font-weight: ${WEIGHTS.bold};
+  color: ${COLORS.white};
+  border-radius: 2px;
+`;
+
+const SaleFlag = styled(Flag)`
+  background-color: ${COLORS.primary};
+`;
+
+const NewFlag = styled(Flag)`
+  background-color: ${COLORS.secondary};
 `;
 
 export default ShoeCard;
